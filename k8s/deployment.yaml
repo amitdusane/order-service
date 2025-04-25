@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: amitdusane/order-service:1.0.6
+          image: amitdusane/order-service:${IMAGE_TAG}
+          env:
+            - name: IMAGE_TAG
+              value: "__IMAGE_TAG__" # Placeholder, replaced by GitHub Actions
           ports:
             - containerPort: 8082
           imagePullPolicy: Always
