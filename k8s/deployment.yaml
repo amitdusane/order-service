@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: amitdusane/order-service:1.0.1
+          image: amitdusane/order-service:1.0.${{ github.run_number }}
           ports:
             - containerPort: 8082
           imagePullPolicy: Always
