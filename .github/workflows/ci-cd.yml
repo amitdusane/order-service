@@ -39,12 +39,12 @@ jobs:
       - name: Replace image tag in deployment.yaml
         run: |
           IMAGE_TAG=1.0.${{ github.run_number }}
-          sed -i "s|__IMAGE_TAG__|$IMAGE_TAG|g" deployment.yaml
+          sed -i "s|__IMAGE_TAG__|$IMAGE_TAG|g" k8s/deployment.yaml
 
       - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add deployment.yaml
+          git add k8s/deployment.yaml
           git commit -m "Update image tag to $IMAGE_TAG"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
