@@ -36,6 +36,10 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
+      - name: Copy deployment template
+        run: |
+          cp k8s/deployment-template.yaml k8s/deployment.yaml
+
       - name: Replace image tag in deployment.yaml
         run: |
           IMAGE_TAG=1.0.${{ github.run_number }}
