@@ -49,6 +49,12 @@ jobs:
           IMAGE_TAG=1.0.${{ github.run_number }}
           sed -i "s|image: amitdusane/order-service:.*|image: amitdusane/order-service:$IMAGE_TAG|g" infra-repo/order-service/deployment.yaml
 
+      - name: Configure Git for PAT
+        run: |
+          cd infra-repo
+          git config --local --unset-all http.https://github.com/.extraheader
+          git remote set-url origin https://amit01985@gmail.com:${{ secrets.INFRA_REPO_PAT }}@github.com/amitdusane/infra-repo.git
+
       - name: Commit and push changes to infra-repo
         run: |
           cd infra-repo
