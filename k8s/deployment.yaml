@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: amitdusane/order-service:1.0.10
+          image: amitdusane/order-service:1.0.11
           ports:
             - containerPort: 8082
           imagePullPolicy: Always
