@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: amitdusane/infra-repo
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.INFRA_REPO_PAT }}
           path: infra-repo
 
       - name: Update image tag in deployment.yaml
