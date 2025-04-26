@@ -14,7 +14,7 @@ public class GreetingController {
 
     @GetMapping("/api/hello")
     public String sayHello() {
-        log.info("Inside sayhello");
+        log.info("Inside say hello");
         return "Hello from Order Service By - " + helloBy;
     }
 }
