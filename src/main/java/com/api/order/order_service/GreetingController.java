@@ -12,7 +12,7 @@ public class GreetingController {
     @Value("${hello.by}")
     private String helloBy;
 
-    @GetMapping("/api/hello")
+    @GetMapping("/order/api/hello")
     public String sayHello() {
         log.info("Inside say hello");
         return "Hello from Order Service By - " + helloBy;
